@@ -62,19 +62,19 @@ class DevisScreen(Screen):
                 resultat += f"Adresse du client : {adresse}\n"
                 resultat += f"Type de maison : {type}\n"
                 resultat += f"Surface de la maison : {surface} m2\n"
-                resultat += f"Coût total de la construction : {int(cout_total)} FCFA\n"
+                resultat += f"Coût total de la construction : {cout_total} FCFA\n"
                 # Afficher le résultat sur l'écran de résultat
                 self.manager.get_screen("resultat").ids.resultat.text = resultat
                 # Changer l'écran courant pour l'écran de résultat
                 self.manager.current = "resultat"
             except ValueError:
                 # Afficher un message d'erreur si la surface n'est pas un nombre valide
-                self.manager.get_screen("resultat").ids.resultat.text = "La surface doit être un nombre réel."
-                self.manager.current = "resultat"
+                self.manager.get_screen("devis").ids.devis.text = "Veuillez renseigner les informations suivantes pour générer votre devis\n\t      La surface doit être un nombre réel."
+                self.manager.current = "devis"
         else:
             # Afficher un message d'erreur si les champs sont vides
-            self.manager.get_screen("resultat").ids.resultat.text = "Veuillez remplir tous les champs."
-            self.manager.current = "resultat"
+            self.manager.get_screen("devis").ids.devis.text = "Veuillez renseigner les informations suivantes pour générer votre devis\n\t      Veuillez remplir tous les champs."
+            self.manager.current = "devis"
 
     # Définir la fonction qui calcule le coût total de la construction en fonction du type et de la surface de la maison
     def calculer_cout(self, type, surface):
