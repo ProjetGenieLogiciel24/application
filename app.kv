@@ -15,25 +15,28 @@ ScreenManager:
         Rectangle:
             pos: self.pos
             size: self.size
-            source: "[1]"
-    # Ajouter un titre
-    Label:
-        text: "Bienvenue sur l'application de génération de devis de construction de maison"
-        font_size: 20
-        pos_hint: {"x": 0, "top": 1}
-        size_hint: 1, 0.2
-        color: 0, 0, 0, 1
+            source: "image.jpg"
+	# Ajouter un titre avec la propriété text_size
+	Label:
+ 	   text: "\nBienvenue sur l'application de génération de devis de construction de maison.\n"
+	    font_size: root.width * 0.05
+ 	   pos_hint: {"x": 0, "top": 1}
+	    size_hint: 1, None  # Définir une taille fixe
+	    height: self.texture_size[1] # Ajuster automatiquement la hauteur en fonction de la taille du texte
+  	  color: 0, 0, 1
+    	text_size: self.width, None  # Définir la zone de texte en fonction de la largeur de l'élément
+    	halign: 'center'  # Centrer le texte horizontalement
         # Ajouter un effet de bordure
         canvas.before:
             Color:
-                rgb: 0, 0, 0
+                rgb: 0, 0, 1
             Line:
-                width: 2
+                width: root.width * 0.005
                 rectangle: self.x, self.y, self.width, self.height
     # Ajouter un bouton pour accéder à l'écran de devis
     Button:
         text: "Commencer le devis"
-        font_size: 20
+        font_size: root.width * 0.05
         pos_hint: {"center_x": 0.5, "center_y": 0.5}
         size_hint: 0.5, 0.1
         # Ajouter un effet de bordure
@@ -54,28 +57,31 @@ ScreenManager:
         Rectangle:
             pos: self.pos
             size: self.size
-            source: "[2]"
+            source: "image.jpg"
     # Ajouter un titre
     Label:
         id: devis
-        text: "Veuillez renseigner les informations suivantes pour générer votre devis"
-        font_size: 18
-        pos_hint: {"x": 0, "top": 1}
-        size_hint: 1, 0.1
-        color: 0, 0, 0, 1
+        text: "\nVeuillez renseigner les informations suivantes pour générer votre devis\n"
+        font_size: root.width * 0.05
+ 	   pos_hint: {"x": 0, "top": 1}
+	    size_hint: 1, None  # Définir une taille fixe
+	    height: self.texture_size[1]  # Ajuster automatiquement la hauteur en fonction de la taille du texte
+  	  color: 0, 0, 1
+    	text_size: self.width, None  # Définir la zone de texte en fonction de la largeur de l'élément
+    	halign: 'center'  # Centrer le texte horizontalement
         # Ajouter un effet de bordure
         canvas.before:
             Color:
-                rgb: 0, 0, 0
+                rgb: 0, 0, 1
             Line:
-                width: 2
+                width: root.width * 0.005
                 rectangle: self.x, self.y, self.width, self.height
     # Ajouter un champ de saisie pour le nom du client
     TextInput:
         id: nom
         hint_text: "Nom du client"
-        font_size: 16
-        pos_hint: {"x": 0.1, "top": 0.9}
+        font_size: root.width * 0.05
+        pos_hint: {"x": 0.1, "top": 0.8}
         size_hint: 0.8, 0.1
         # Ajouter un effet de bordure
         canvas.before:
@@ -88,8 +94,8 @@ ScreenManager:
     TextInput:
         id: adresse
         hint_text: "Adresse du client"
-        font_size: 16
-        pos_hint: {"x": 0.1, "top": 0.8}
+        font_size: root.width * 0.05
+        pos_hint: {"x": 0.1, "top": 0.7}
         size_hint: 0.8, 0.1
         # Ajouter un effet de bordure
         canvas.before:
@@ -103,8 +109,8 @@ ScreenManager:
         id: type
         text: "Type de maison"
         values: ("Plain-pied", "A étage", "Sous-sol")
-        font_size: 16
-        pos_hint: {"x": 0.1, "top": 0.7}
+        font_size: root.width * 0.05
+        pos_hint: {"x": 0.1, "top": 0.6}
         size_hint: 0.8, 0.1
         # Ajouter un effet de bordure
         canvas.before:
@@ -117,8 +123,8 @@ ScreenManager:
     TextInput:
         id: surface
         hint_text: "Surface de la maison (en m2)"
-        font_size: 16
-        pos_hint: {"x": 0.1, "top": 0.6}
+        font_size: root.width * 0.05
+        pos_hint: {"x": 0.1, "top": 0.5}
         size_hint: 0.8, 0.1
         # Ajouter un effet de bordure
         canvas.before:
@@ -130,7 +136,7 @@ ScreenManager:
     # Ajouter un bouton pour valider le devis
     Button:
         text: "Valider le devis"
-        font_size: 18
+        font_size: root.width * 0.05
         pos_hint: {"center_x": 0.5, "center_y": 0.2}
         size_hint: 0.5, 0.1
         # Ajouter un effet de bordure
@@ -151,40 +157,38 @@ ScreenManager:
         Rectangle:
             pos: self.pos
             size: self.size
-            source: "[3]"
+            source: "image.jpg"
     # Ajouter un titre
     Label:
-        text: "Voici le devis de construction de votre maison"
-        font_size: 18
-        pos_hint: {"x": 0, "top": 1}
-        size_hint: 1, 0.2
-        color: 0, 0, 0, 1
+        text: "\nVoici le devis de construction de votre maison\n"
+        font_size: root.width * 0.05
+ 	   pos_hint: {"x": 0, "top": 1}
+	    size_hint: 1, None  # Définir une taille fixe
+	    height: self.texture_size[1]  # Ajuster automatiquement la hauteur en fonction de la taille du texte
+  	  color: 0, 0, 1
+    	text_size: self.width, None  # Définir la zone de texte en fonction de la largeur de l'élément
+    	halign: 'center'  # Centrer le texte horizontalement
         # Ajouter un effet de bordure
         canvas.before:
             Color:
-                rgb: 0, 0, 0
+                rgb: 0, 0, 1
             Line:
-                width: 2
+                width: root.width * 0.005
                 rectangle: self.x, self.y, self.width, self.height
-    # Ajouter un texte pour afficher le résultat
-    Label:
-        id: resultat
-        text: ""
-        font_size: 16
-        pos_hint: {"x": 0.1, "top": 0.8}
-        size_hint: 0.8, 0.6
-        color: 0, 0, 0, 1
-        # Ajouter un effet de bordure
-        canvas.before:
-            Color:
-                rgb: 0, 0, 0
-            Line:
-                width: 2
-                rectangle: self.x, self.y, self.width, self.height
+	# Ajouter un texte pour afficher le résultat
+	Label:
+	    id: resultat
+ 	   text: ""
+	    font_size: root.width * 0.05
+	    pos_hint: {"x": 0.1, "top": 0.8}
+	    size_hint: 0.8, 0.6
+   	 color: 0, 0, 1
+  	  text_size: self.width, None  # Ajuster la zone de texte en fonction de la largeur de l'élément
+	    
     # Ajouter un bouton pour revenir à l'écran d'accueil
     Button:
         text: "Retour à l'accueil"
-        font_size: 18
+        font_size: root.width * 0.05
         pos_hint: {"center_x": 0.5, "center_y": 0.1}
         size_hint: 0.5, 0.1
         # Ajouter un effet de bordure
