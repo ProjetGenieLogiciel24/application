@@ -62,7 +62,7 @@ class DevisScreen(Screen):
                 resultat += f"Adresse du client : {adresse}\n"
                 resultat += f"Type de maison : {type}\n"
                 resultat += f"Surface de la maison : {surface} m2\n"
-                resultat += f"Coût total de la construction : {cout_total} FCFA\n"
+                resultat += f"Coût total : {cout_total} FCFA\n"
                 # Afficher le résultat sur l'écran de résultat
                 self.manager.get_screen("resultat").ids.resultat.text = resultat
                 # Changer l'écran courant pour l'écran de résultat
